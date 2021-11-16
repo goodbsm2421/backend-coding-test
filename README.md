@@ -61,3 +61,105 @@ Let API consumer
        stores.json에 제일 상단에 있는 postcode를 이용하여 postcodes.io 에서 가까이있는 postcode를 참고하여 fake data를 생성했습니다.
        그 후, api를 요청해보니 fake data를 포함한 상점 리스트가 반환되는 것을 볼 수 있었습니다.
        이처럼 stores.json에 좀 더 많은 데이터가 있었다면 문제 의도를 조금 더 명확하게 파악할 수 있었을 것 같습니다.
+       
+ * * *
+ ### Api Documents
+ * * *
+ 
+ - getAllStores(stores.json의 모든 리스트 조회)
+
+#### request
+ ```
+ GET http://localhost:2020/stores
+ ```
+#### response
+  - 200
+```
+[
+  {
+    "name": "St_Albans",
+    "postcode": "AL1 2RJ"
+  },
+  {
+    "name": "fake1",
+    "postcode": "AL1 2DF"
+  },
+  {
+    "name": "fake2",
+    "postcode": "AL1 2JU"
+  }, ...
+]
+```
+---
+ - getStoreByName(이름으로 특정 store 조회)
+
+#### request
+ ```
+ GET http://localhost:2020/stores/:storeName
+ ```
+#### response
+  - 200
+```
+{
+    "name": "Hatfield",
+    "postcode": "AL9 5JP"
+}
+```
+  - 200(name 이 잘못되거나 없을경우)
+```
+{
+    "Store Not Found"
+}
+```
+---
+ - getGeoLocationByPostcode(postcode를 이용하여 geolocation 조회)
+
+#### request
+ ```
+ GET http://localhost:2020/stores/geolocation/:postcode
+ ```
+#### response
+  - 200
+```
+{
+    "latitude": 51.154921,
+    "longitude": 0.288514
+}
+```
+  - 200(postcode 가 잘못되거나 없을경우)
+```
+{
+    "Invalid postcode"
+}
+```
+---
+- getAllStoresByGeoLocation(geolocation과 postcode를 이용하여 근처에있는 stores 정보 조회)
+
+#### request
+ ```
+ post http://localhost:2020/stores/:postcode
+ ```
+#### response
+  - 200
+```
+[
+    {
+        "name": "St_Albans",
+        "postcode": "AL1 2RJ"
+    },
+    {
+        "name": "fake1",
+        "postcode": "AL1 2DF"
+    },
+    {
+        "name": "fake2",
+        "postcode": "AL1 2JU"
+    }
+]
+```
+  - 200(postcode 가 잘못되거나 없을경우)
+```
+{
+    "Store not found with a given postcode"
+}
+```
