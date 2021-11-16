@@ -35,7 +35,7 @@ module.exports = {
     try {
       //postcode가 없거나 잘못된경우 에러메시지 반환
       if (!postcode) {
-        return res.status(200).json('Invalid postcode');
+        return res.status(200).json('Postcode not found');
       }
       //postcode가 일치한다면 endpoint 로 get요청을 보낸 후, latitude 와 longitude 조회
       const locationInfo = await axios.get(

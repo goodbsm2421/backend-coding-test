@@ -61,19 +61,31 @@ Let API consumer
        stores.json에 제일 상단에 있는 postcode를 이용하여 postcodes.io 에서 가까이있는 postcode를 참고하여 fake data를 생성했습니다.
        그 후, api를 요청해보니 fake data를 포함한 상점 리스트가 반환되는 것을 볼 수 있었습니다.
        이처럼 stores.json에 좀 더 많은 데이터가 있었다면 문제 의도를 조금 더 명확하게 파악할 수 있었을 것 같습니다.
-       
- * * *
- ### Api Documents
- * * *
- 
- - getAllStores(stores.json의 모든 리스트 조회)
+
+---
+
+### Api Documents
+
+#### baseUrl
+
+```
+http://localhost:2020
+```
+
+---
+
+1. getAllStores(stores.json의 모든 리스트 조회)
 
 #### request
- ```
- GET http://localhost:2020/stores
- ```
+
+```
+GET /stores
+```
+
 #### response
-  - 200
+
+- 200
+
 ```
 [
   {
@@ -90,57 +102,79 @@ Let API consumer
   }, ...
 ]
 ```
+
 ---
- - getStoreByName(이름으로 특정 store 조회)
+
+2. getStoreByName(이름으로 특정 store 조회)
 
 #### request
- ```
- GET http://localhost:2020/stores/:storeName
- ```
+
+```
+GET /stores/:storeName
+```
+
 #### response
-  - 200
+
+- 200
+
 ```
 {
     "name": "Hatfield",
     "postcode": "AL9 5JP"
 }
 ```
-  - 200(name 이 잘못되거나 없을경우)
+
+- 200(name이 없을 경우)
+
 ```
 {
     "Store Not Found"
 }
 ```
+
 ---
- - getGeoLocationByPostcode(postcode를 이용하여 geolocation 조회)
+
+3. getGeoLocationByPostcode(postcode를 이용하여 geolocation 조회)
 
 #### request
- ```
- GET http://localhost:2020/stores/geolocation/:postcode
- ```
+
+```
+GET /stores/geolocation/:postcode
+```
+
 #### response
-  - 200
+
+- 200
+
 ```
 {
     "latitude": 51.154921,
     "longitude": 0.288514
 }
 ```
-  - 200(postcode 가 잘못되거나 없을경우)
+
+- 200(postcode가 없을 경우)
+
 ```
 {
-    "Invalid postcode"
+    "Postcode not found"
 }
 ```
+
 ---
-- getAllStoresByGeoLocation(geolocation과 postcode를 이용하여 근처에있는 stores 정보 조회)
+
+4. getAllStoresByGeoLocation(geolocation과 postcode를 이용하여 근처에있는 stores 정보 조회)
 
 #### request
- ```
- post http://localhost:2020/stores/:postcode
- ```
+
+```
+POST /stores/:postcode
+```
+
 #### response
-  - 200
+
+- 200
+
 ```
 [
     {
@@ -157,7 +191,9 @@ Let API consumer
     }
 ]
 ```
-  - 200(postcode 가 잘못되거나 없을경우)
+
+- 200(postcode에 해당하는 상점이 없을 경우)
+
 ```
 {
     "Store not found with a given postcode"
