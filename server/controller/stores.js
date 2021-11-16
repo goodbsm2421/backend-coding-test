@@ -98,37 +98,4 @@ module.exports = {
       return res.sendStatus(500);
     }
   },
-
-  /*                                     postcodes.io 를 이용한 테스트 결과                            */
-
-  //   getAllStoresByGeoLocation: async (req, res) => {
-  //     const postcode = req.params.postcode;
-  //     const { radius, limit } = req.body;
-  //     const data = await axios.get(
-  //       `http://localhost:2020/stores/geolocation/${postcode}`
-  //     );
-  //     const storesInfo = await axios.post('https://api.postcodes.io/postcodes', {
-  //       geolocations: [
-  //         {
-  //           latitude: data.data.latitude,
-  //           longitude: data.data.longitude,
-  //           radius,
-  //           limit,
-  //         },
-  //       ],
-  //     });
-  //     const results = storesInfo.data.result[0].result;
-  //     results.sort((a, b) =>
-  //       a.northings > b.northings ? 1 : a.northings < b.northings ? -1 : 0
-  //     );
-  //     try {
-  //       if (results.length === 0) {
-  //         return res.status(200).json('Store not found with a given postcode');
-  //       }
-  //       return res.status(200).json(results);
-  //     } catch (err) {
-  //       console.log(err);
-  //       return res.sendStatus(500);
-  //     }
-  //   },
 };
