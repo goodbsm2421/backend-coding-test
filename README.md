@@ -55,9 +55,9 @@ Let API consumer
 
   3. What is one thing we could do to improve this test?
 
-     - 마지막 테스트를 좀 더 명확하메 명시해주면 더 좋을 것 같습니다. 첫번째 두번째 테스트 같은 경우 stores.json 에서 반환하라고 정확하게 명시가되어있지만,
-       마지막 테스트같은경우 UK라서 좀 더 의도를 파악하기가 힘들었던거같습니다. postcodes.io 에서 api 요청을 보내면 반환되는 값들은 상점들의 list라기 보다는
-       위치와 좌표 등 상점들의 정보가 나와있는거같아서 store 의 list 라기보단, storeInfo 에 가깝다고 생각을했고, stores.json 이 주어졌기떄문에
-       고민하다가 stores.json 의 상점 정보를 반환하였지만 stores.json 에 데이터가 많지않다보니 radius를 아무리 크게 설정해도 근처 상점은 뜨지않고
-       그 postcode에 해당하는 상점만 반환이되어서 문제의 의도를 정확하게 파악하기가 힘들었습니다. stores.json 의 데이터를 좀 더 보충을하던지
-       정확하게 어떤 list를 반환하는지 명시되면 좋을거같습니다.
+     - stores.json의 데이터가 좀 더 풍부했으면 좋겠습니다.
+       마지막 테스트 같은 경우 postcodes.io 에서 api 요청을 보내면 좌표와 postcode 등 지리적 정보가 반환되고 stores.json에 데이터가 많지 않다보니
+       radius를 아무리 크게 설정해도 근처 상점은 반환되지 않고 그 postcode에 해당하는 상점만 반환이되어서 문제의 의도를 정확하게 파악하기가 힘들었습니다.
+       stores.json에 제일 상단에 있는 postcode를 이용하여 postcodes.io 에서 가까이있는 postcode를 참고하여 fake data를 생성했습니다.
+       그 후, api를 요청해보니 fake data를 포함한 상점 리스트가 반환되는 것을 볼 수 있었습니다.
+       이처럼 stores.json에 좀 더 많은 데이터가 있었다면 문제 의도를 조금 더 명확하게 파악할 수 있었을 것 같습니다.
