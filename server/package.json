@@ -1,0 +1,31 @@
+{
+  "name": "backend-coding-test",
+  "version": "1.0.0",
+  "description": "## About this task",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goodbsm2421/backend-coding-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goodbsm2421/backend-coding-test/issues"
+  },
+  "homepage": "https://github.com/goodbsm2421/backend-coding-test#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "prettier": "^2.4.1",
+    "sequelize": "^6.9.0",
+    "sequelize-cli": "^6.3.0"
+  }
+}
