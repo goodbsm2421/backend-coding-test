@@ -64,7 +64,7 @@ Let API consumer
 
 ---
 
-### Api Documents
+## Api Documents
 
 #### baseUrl
 
@@ -74,7 +74,7 @@ http://localhost:2020
 
 ---
 
-1. getAllStores(stores.json의 모든 리스트 조회)
+### getAllStores(stores.json의 모든 리스트 조회)
 
 #### request
 
@@ -105,7 +105,7 @@ GET /stores
 
 ---
 
-2. getStoreByName(이름으로 특정 store 조회)
+### getStoreByName(이름으로 특정 store 조회)
 
 #### request
 
@@ -134,7 +134,7 @@ GET /stores/:storeName
 
 ---
 
-3. getGeoLocationByPostcode(postcode를 이용하여 geolocation 조회)
+### getGeoLocationByPostcode(postcode를 이용하여 geolocation 조회)
 
 #### request
 
@@ -163,7 +163,7 @@ GET /stores/geolocation/:postcode
 
 ---
 
-4. getAllStoresByGeoLocation(geolocation과 postcode를 이용하여 근처에있는 stores 정보 조회)
+### getAllStoresByGeoLocation(geolocation과 postcode를 이용하여 근처에있는 stores 정보 조회)
 
 #### request
 
